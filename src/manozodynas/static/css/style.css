@@ -1,0 +1,73 @@
+body, html {
+  height: 100%;
+  margin: 0px;
+}
+
+#header_part {
+  height:30px;
+  background-color:#EEEE00;
+}
+
+#header_part .title {
+  font-size: 25px;
+  display:table;
+  margin: auto;
+}
+
+#middle_part  {
+  background-color:#4ED126;
+  height:400px;
+}
+
+#middle_part #insert_form  {
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid black;
+  width: 300px;
+  height: 396px;
+}
+
+#middle_part #header {
+  font-size: 25px;
+  display:table;
+  margin: auto;
+}
+
+#middle_part #select_form  {
+  float: left;
+  width: 300px;
+  border: 2px solid black;
+  height: 396px;
+  overflow-y: scroll;
+}
+
+#middle_part #info_form  {
+  float: left;
+  width: 300px;
+  border: 2px solid black;
+  height: 396px;
+}
+
+#info_form .match_item#even {
+  border: 1px solid black;
+  background-color:#00aa00;
+}
+
+#info_form .match_item#odd {
+  border: 1px solid black;
+  background-color:#50943A;
+}
+
+#footer_part  {
+  height:30px;
+  background-color:#EE0000;
+}
+
+#footer_part div {
+  font-size: 25px;
+  display:table;
+  margin: auto;
+}
+
+

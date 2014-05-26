@@ -3,10 +3,14 @@ from django.conf import settings
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .views import index_view, login_view
+from .views import *
 
 urlpatterns = patterns('',
-    url(r'^$', index_view, name='index'),
+    url(r'^$', main_view, kwargs={'word_id':-1}, name='index'),
+    url(r'^(?P<word_id>\d+)/$', main_view, name='wordId'),
+    url(r'^word$', word_view, name='word'),
+
+ 
     url(r'^login$', login_view, name='login'),
 )
 
