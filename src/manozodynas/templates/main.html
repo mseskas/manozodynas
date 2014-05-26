@@ -1,0 +1,67 @@
+{% extends "main_template.html" %}
+
+{% block header %}
+               
+               <div class="title">Welcome to "manožodynas"</div>
+{% endblock %}
+
+{% block footer %}
+{% if user != "" %}
+        <div style="display:inline"> 
+            You're currently logged in as - {{ user }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block middle %}
+        <div id="insert_form">
+            <form  action="" method="post" >{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
+            <br>
+            <div>Instruction : enter foreign language word in "key word" field. Then enter Lithuanian words in "Matches" field (example : key word - go, matches - eiti keliauti judeti(separated with spaces)) You can also add description of words in "Words" page.</div>
+            <br>
+            <span>Go to </span>&nbsp<a href="/word">Words page</a>
+        </div>
+        <div id="select_form" >
+<div id="header">Wocabulary</div>
+            <table border="1" style="width:100%">
+                
+                <tbody>
+                {% for word in wocabulary %}
+                <tr>
+                  <td> 
+                    <div style="float: left;">{{ word.key_word }}</div>
+                    <div style="float: right;">
+                        <button type="button" onClick="location.href='/{{ word.id }}'">Select</button>
+                    </div>
+                  </td>
+
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if word_id >= 0 %}
+            <div id="info_form" >
+            <div id="header">Translation</div>
+            {% for word in word_info %}
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="match_item" id="even">
+                {% else %}
+                <div class="match_item" id="odd">
+                {% endif %}
+
+                    <div>match : {{ word.key }}</div>
+                    {% if word.description != "" %}                    
+                        <div>description : {{ word.description }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+{% endblock %}

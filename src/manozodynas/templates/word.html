@@ -1,0 +1,39 @@
+{% extends "main_template.html" %}
+
+
+{% block footer %}
+{% if user != "" %}
+        <div style="display:inline"> 
+            You're currently logged in as - {{ user }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block middle %}
+        <div id="insert_form">
+            <form  action="" method="post" >{% csrf_token %}
+                {{ form_word.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
+            <br>
+            <span>Go to </span>&nbsp<a href="/">Main page</a>
+        </div>
+        <div id="select_form" >
+            <div id="header">Words</div>
+            <table border="1" style="width:100%">
+                
+                <tbody>
+                {% for word in wocabulary %}
+                <tr>
+                  <td> 
+                    <div style="border:1px solid black">word : {{ word.key }}<br>description : {{ word.description }}</div>
+                  </td>
+
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
