@@ -49,6 +49,7 @@ class Words(models.Model):
     key = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=600)
     pronunciation = models.CharField(max_length=50)
+    language = models.CharField(default='unknown', max_length=50)
 
 class Translation(models.Model):
     key_word = models.CharField(max_length=50, unique=True)
