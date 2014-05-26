@@ -46,12 +46,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class Words(models.Model):
-    key = models.CharField(max_length=50)
+    key = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=600)
     pronunciation = models.CharField(max_length=50)
 
 class Translation(models.Model):
-    key_word = models.CharField(max_length=50)
+    key_word = models.CharField(max_length=50, unique=True)
     matches =  models.CharField(max_length=300)
     author = models.CharField(max_length=50)
 
